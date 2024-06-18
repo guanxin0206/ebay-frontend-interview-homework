@@ -1,0 +1,85 @@
+class {
+  onCreate() {
+    this.state = { 
+      timeLeft: 0, 
+      targetDate: '',
+    };
+
+    const calculateTimeLeft = () => {  
+      const total = Date.parse(new Date(this.state.targetDate).toISOString()) - Date.now();  
+      const milliseconds = Math.floor((total % 1000)); 
+      const seconds = Math.floor((total / 1000) % 60);  
+      const minutes = Math.floor((total / (1000 * 60)) % 60);  
+      const hours = Math.floor((total / (1000 * 60 * 60)));  
+  
+      return {  
+        hours,  
+        minutes,  
+        seconds,  
+        milliseconds 
+      };  
+    };  
+  
+    this.state.timeLeft = calculateTimeLeft();  
+  
+    const timer = setInterval(() => {  
+      this.state.timeLeft = calculateTimeLeft();  
+    }, 100);  
+  }
+  onMount() {
+    
+  }
+  onDestroy() {
+    clearInterval(timer)
+  }
+
+  onInput(input) {
+    const targetDate = input.targetDate
+
+    this.state = {
+      timeLeft: 0,
+      targetDate,
+    };
+  }
+}
+
+$ const formatTimeLeft = () => {  
+    if (!state.timeleft){
+      return 'Loading...';  
+    } 
+    const pad = (number) => (number < 10 ? '0' : '') + number;  
+    return `${pad(state.timeleft.hours)}:${pad(state.timeleft.minutes)}:${pad(state.timeleft.seconds)}:${pad(state.timeleft.milliseconds)}`;  
+}; 
+
+
+<div.banner-container>
+  <div.logo-div>
+    <img.logo src="./assets/logo.png" />
+  </div>
+  <div.main-div>
+    <h2.highlight>${formatTimeLeft()}</h2>
+    <h3>Allstate Extended Vehicle Care</h3>
+    <h1>Protection that <span.highlight>extends beyond your warranty</span></h1>
+  </div>
+  
+</div>
+
+style {
+  .banner-container{
+    display:flex;
+    background-color:rgb(13, 25, 64);
+    border-radius:5px;
+  }
+  .highlight{
+      color: rgb(120, 200, 240);
+  }
+  .logo-div{
+    padding:30px
+  }
+  .main-div{
+    padding:10px
+  }
+  img.logo {
+    width:6em;
+  }
+}

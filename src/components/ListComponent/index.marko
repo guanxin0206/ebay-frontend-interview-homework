@@ -1,0 +1,49 @@
+$ const dataArray = [  
+  {  
+    title: 'Affordable Protection Plans',  
+    subtitle: 'Save up to 50% when you buy online from Allstate',
+    icon: 'src/components/ListComponent/assets/money.png',
+  },  
+  {  
+    title: '100% of covered repair costs',  
+    subtitle: 'Covers everything from your steering and transmission, down to the fancy tech inside your touchscreen, All you pay is a $50 deductible.', 
+    icon: 'src/components/ListComponent/assets/cost.png',
+  },  
+  {  
+    title: 'Repair Anywhere',  
+    subtitle: 'You choose your mechanic, and we pay them directly for repairs, so you aren\'t stuck chasing down reimbursements',
+    icon: 'src/components/ListComponent/assets/direct.png',
+  }  
+];
+
+<div.list-container>
+  <ul.no-bullets>
+    <for|item, index| of=dataArray>
+      <li.li-style>
+        <img src=`${item.icon}`>
+        <div>
+          <h3>${item.title}</h3>
+          <div.subtitle>${item.subtitle}</div>
+        </div>
+      </li>
+    </for>
+  </ul>
+</div>
+
+style {
+  .list-container{
+    padding:20px 0;
+    background-color:white;
+    color:black;
+  }
+  .no-bullets {  
+    list-style-type: none;  
+  } 
+  .li-style{
+    display:flex;
+    padding: 0 0 40px 0;
+  }
+  .subtitle{
+    opacity:0.5;
+  }
+}

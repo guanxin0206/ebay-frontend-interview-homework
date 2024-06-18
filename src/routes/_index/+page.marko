@@ -1,29 +1,45 @@
+$ const targetDate = '2024-06-19T23:59:59';
+
 <div.container>
-  <header>
-    <img.logo src="./logo.svg" alt="Marko"/>
-  </header>
-  <main>
-    <p>Edit <code>./src/routes/_index/+page.marko</code> and save to reload.</p>
-    <a href="https://markojs.com/docs/getting-started">
-      Learn Marko
-    </a>
-  </main>
+   <div.top-banner>
+        <TopBanner targetDate=`${targetDate}`/>
+    </div>
+    <div.bottom-page>
+        <div.bottom-left-page>
+            <InformationPanel />
+            <ListComponent />
+        </div>
+        <RetentionForm />
+    </div>
 </div>
-<mouse-mask/>
 
 style {
-  .container {
+  .homepage{
     display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(1em, 2vw, 2em); 
-    padding: 1em;
-    box-sizing: border-box;
-    height:100%;
-    width:100%;
+    flex-direction:column;
   }
-  img.logo {
-    width:12em;
+
+  .top-banner{
+    padding:20px;
   }
+
+  .bottom-page{
+    display:flex;
+    padding:20px;
+  }
+
+  .bottom-left-page{
+    padding-right:100px;
+  }
+
+  @media (max-width: 768px) { /* 当屏幕宽度小于或等于768px时 */  
+    .bottom-page {  
+        flex-direction: column; /* 将底部页面布局改为垂直方向 */  
+    }  
+    
+    .bottom-left-page {  
+        padding-right: 0; /* 在小屏幕上移除右侧内边距 */  
+    }  
+  }  
+
 }

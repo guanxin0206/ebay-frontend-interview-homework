@@ -1,0 +1,105 @@
+$ const handleClick = (event) => {
+  event.preventDefault();
+  console.log("Learn more button clicked");
+}
+
+<div.form-container>
+  <h1.title>Get a Free Quote</h1>  
+    <form action="/submit-form" method="post">  
+        <div.form-row>  
+            <div.form-group>  
+                <label for="firstName">First Name</label>  
+                <input.rounded-input type="text" id="firstName" name="firstName" required>  
+            </div>  
+            <div.form-group>  
+                <label for="lastName">Last Name</label>  
+                <input.rounded-input type="text" id="lastName" name="lastName" required>  
+            </div>  
+        </div>
+        <div.form-row>   
+          <div.form-group>  
+              <label for="email">Email Address</label>  
+              <input.rounded-input type="email" id="email" name="email" required>  
+          </div>
+        </div> 
+  
+        <div.policy-container>  
+            <h3>Please Check All Boxes To Qualify</h3>
+            <div.checkbox>
+                <input type="checkbox" name="option1" value="option1">  
+                My Vehicle's model year is 2017 or newer 
+            </div>  
+            <div.checkbox>  
+                <input type="checkbox" name="option2" value="option2">  
+                My vehicle has less than 80,000 miles 
+            </div>  
+            <div.checkbox>  
+                <input type="checkbox" name="option3" value="option3">  
+                I do not live in either California or Massachusetts
+            </div>  
+            <div>
+                By clicking Submit, you agree to send your information to Allstate, subject to their privacy policy
+            </div>
+        </div>  
+        <div.btn-container>
+          <button.btn-style on-click(handleClick)>Learn more</button>
+        </div>  
+    </form> 
+</div>
+
+
+
+style {
+  .form-container{
+    background-color:rgb(13, 25, 64);
+  }
+
+  .title{
+    padding: 20px 60px;
+  }
+
+  .form-row {  
+    display: flex;
+    padding: 20px 50px;
+    justify-content: space-between; 
+  }  
+    
+  .form-group {  
+      flex: 1;  
+      margin-right: 50px;
+  }  
+    
+  .form-group:last-child {  
+      margin-right: 0; 
+  }  
+    
+  .rounded-input {  
+      border-radius: 10px;  
+      padding: 5px;  
+      margin-top: 5px;  
+      width: 100%; 
+  }  
+
+  .checkbox{
+    padding-bottom:10px;
+  }
+
+  .policy-container{
+    padding: 20px 50px;
+  }
+
+  .btn-container{
+    display:flex;
+    padding:20px;
+    justify-content:center;
+  }
+
+  .btn-style{
+    width: 200px;
+    height: 50px;
+    background-color:rgb(237, 109, 102);
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }  
+}
